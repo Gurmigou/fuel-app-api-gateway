@@ -11,15 +11,15 @@ spring:
               enabled: true
          routes:
             - id: fuel-app-parser-service
-              uri: lb://fuel-app-parser-service
-              predicates:
-                 - Path=/api/v1/fuel-info, /api/v1/fuel-info/update
-                 - Method=GET, POST
-            - id: fuel-app-car-parser-service
-              uri: lb://fuel-app-car-parser-service
-              predicates:
-                 - Path=/parse
-                 - Method=POST
+              uri: https://e-petrol-price-parser.herokuapp.com/
+#              predicates:
+#                 - Path=/api/v1/fuel-info, /api/v1/fuel-info/update
+#                 - Method=GET, POST
+#            - id: fuel-app-car-parser-service
+#              uri: lb://fuel-app-car-parser-service
+#              predicates:
+#                 - Path=/parse
+#                 - Method=POST
 
 eureka:
    client:
