@@ -11,10 +11,10 @@ spring:
               enabled: true
          routes:
             - id: fuel-app-parser-service
-              uri: https://e-petrol-price-parser.herokuapp.com/
+              uri: https://e-petrol-price.herokuapp.com/
               predicates:
-                 - Path=/api/v1/fuel-info, /api/v1/fuel-info/update
-                 - Method=GET, POST
+                 - Path=/api/v1/fuel-info, /api/v1/fuel-info/update, /api/v1/fuel-info/logo, /api/v1/fuel-info/details
+                 - Method=GET, POST, PUT
 #            - id: fuel-app-car-parser-service
 #              uri: lb://fuel-app-car-parser-service
 #              predicates:
