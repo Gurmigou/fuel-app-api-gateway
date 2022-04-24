@@ -15,11 +15,11 @@ spring:
               predicates:
                  - Path=/api/v1/fuel-info, /api/v1/fuel-info/update, /api/v1/fuel-info/logo, /api/v1/fuel-info/details
                  - Method=GET, POST, PUT
-#            - id: fuel-app-car-parser-service
-#              uri: lb://fuel-app-car-parser-service
-#              predicates:
-#                 - Path=/parse
-#                 - Method=POST
+            - id: fuel-app-car-parser-service
+              uri: https://e-petrol-car.herokuapp.com/
+              predicates:
+                 - Path=/api/v1/car-data/parse-all, /api/v1/car-data/parse-car-brand-pages, /api/v1/car-data/parse-car-pages
+                 - Method=POST
 
 eureka:
    client:
