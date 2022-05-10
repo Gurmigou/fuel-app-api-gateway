@@ -23,7 +23,6 @@ spring:
               predicates:
                  - Path=/api/v1/security/login, /api/v1/security/sign-up, /api/v1/security/update-token,
                  - Method=POST
-                 - Header=Authorization, Bearer (.*)
             - id: fuel-app-user-service-not-security
               uri: https://e-petrol-user.herokuapp.com/
               predicates:
