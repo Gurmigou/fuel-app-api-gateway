@@ -21,7 +21,7 @@ spring:
             - id: fuel-app-user-service
               uri: https://e-petrol-user.herokuapp.com/
               predicates:
-                 - Path=/api/v1/security/login, /api/v1/security/sign-up, /api/v1/security/update-token,
+                 - Path=/api/v1/security/login, /api/v1/security/register, /api/v1/security/update-token,
                  - Method=POST
             - id: fuel-app-user-service-not-security
               uri: https://e-petrol-user.herokuapp.com/
