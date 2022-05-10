@@ -27,13 +27,15 @@ public class JwtOnRequestTokenFilter extends AbstractGatewayFilterFactory<JwtOnR
         return (exchange, chain) -> {
             ServerHttpRequest request = exchange.getRequest();
 
-            if (!request.getHeaders().containsKey("Authorization")) {
+            String authorizationHeader = request.getHeaders().getFirst("Authorization");
+
+            if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
                 return onError(exchange, HttpStatus.UNAUTHORIZED);
             }
 
-            String token = request.getHeaders().getFirst("Authorization");
+            String jwtToken = authorizationHeader.replace("Bearer ", "");
 
-            if (!jwtService.isTokenValid(token)) {
+            if (!jwtService.isTokenValid(jwtToken)) {
                 return onError(exchange, HttpStatus.UNAUTHORIZED);
             }
 
