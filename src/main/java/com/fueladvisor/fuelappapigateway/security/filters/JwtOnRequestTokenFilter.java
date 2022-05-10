@@ -3,12 +3,17 @@ package com.fueladvisor.fuelappapigateway.security.filters;
 import com.fueladvisor.fuelappapigateway.security.service.JwtService;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
+import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.http.server.reactive.ServerHttpResponse;
+import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+@Component
 public class JwtOnRequestTokenFilter extends AbstractGatewayFilterFactory<JwtOnRequestTokenFilter.Config> {
     private final JwtService jwtService;
 
