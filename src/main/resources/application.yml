@@ -27,7 +27,7 @@ spring:
               uri: https://e-petrol-user.herokuapp.com/
               predicates:
                  - Path=/api/v1/user, /api/v1/user/car
-                 - Method=GET
+                 - Method=GET, POST, PUT, DELETE
                  - Header=Authorization, Bearer (.*)
               filters:
                  - JwtOnRequestTokenFilter
